@@ -89,8 +89,7 @@ def classify_email(model, vectorizer, email):
     
     return prediction, spam_probability
 
-# --------------------------
-# Các hàm khác giữ nguyên
+
 def highlight_keywords(text, keywords):
     text = html.escape(text)
     text = text.replace('\n', '<br>')
@@ -206,10 +205,9 @@ def display_email_analysis(email_text, source="", detailed=False):
                 st.dataframe(spam_df.sort_values('Số lần xuất hiện', ascending=False))
         return prediction, spam_probability, word_count, spam_count
 
-# --------------------------
-# Hàm main và các phần còn lại giữ nguyên
+
 def main():
-    # Phần code còn lại giữ nguyên như trong file gốc
+    
     st.title("HỆ THỐNG KIỂM TRA EMAIL SPAM")
     
     st.markdown("""
@@ -306,7 +304,7 @@ def main():
     # Tab 3: Phân tích chi tiết cho nhiều email
     with tabs[2]:
         st.subheader("Phân tích chi tiết Email")
-        # Phân tích email kiểm tra thủ công (nếu có)
+        # Phân tích email kiểm tra thủ công 
         if "selected_manual_email" in st.session_state:
             st.markdown("### Email kiểm tra thủ công")
             with st.container():
@@ -320,7 +318,7 @@ def main():
         else:
             st.info("Chưa có email kiểm tra thủ công nào.")
 
-        # Phân tích email từ file CSV (nếu có)
+        # Phân tích email từ file CSV 
         if "csv_results" in st.session_state:
             st.markdown("### Email từ danh sách CSV")
             model, vectorizer = load_model()
